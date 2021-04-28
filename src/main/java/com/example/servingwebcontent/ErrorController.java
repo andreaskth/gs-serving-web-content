@@ -14,7 +14,7 @@ public class ErrorController {
     private static final Logger logger = LoggerFactory.getLogger(GreetingController.class);
 
 	@GetMapping("/generate-errors")
-	public String generateErrors(@RequestParam(count="count", required=false, defaultValue="10") String count, Model model) {
+	public String generateErrors(@RequestParam(name="count", required=false, defaultValue="10") String count, Model model) {
         int nrOfErrors = Integer.parseInt(count);
 
         for (int i = 0; i < nrOfErrors; i++) {
