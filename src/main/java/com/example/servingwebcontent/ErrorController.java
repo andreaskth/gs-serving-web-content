@@ -18,7 +18,7 @@ public class ErrorController {
         int nrOfErrors = Integer.parseInt(count);
 
         for (int i = 0; i < nrOfErrors; i++) {
-            logger.error("Error spawned in /generate-errors: " + count);
+            logger.error("Error generated in /generate-errors: " + i);
         }
 
 		model.addAttribute("count", count);
