@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Simple naive calculator</h1>
+    <form id="calcForm" action="#" th:action="@{/calculator}" th:object="${calculator}" method="post">
+        <p>New expression: <span id="result"></span></p>
+        <input type="hidden" id="inputField"  th:field="*{expression}"> 
+        <p th:text="'Old expression: ' + ${calculator.expression}" /> 
+        <p th:text="'Result: ' + ${calculator.result}" /> 
+        <table>
+            <tr>
+              <td><button onclick="updateDisplay('7')" type="button">7</button></td>
+              <td><button onclick="updateDisplay('8')" type="button">8</button></td>
+              <td><button onclick="updateDisplay('9')" type="button">9</button></td>
+              <td><button onclick="updateDisplay('/')" type="button">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="updateDisplay('4')" type="button">4</button></td>
+                <td><button onclick="updateDisplay('5')" type="button">5</button></td>
+                <td><button onclick="updateDisplay('6')" type="button">6</button></td>
+                <td><button onclick="updateDisplay('*')" type="button">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="updateDisplay('1')" type="button">1</button></td>
+                <td><button onclick="updateDisplay('2')" type="button">2</button></td>
+                <td><button onclick="updateDisplay('3')" type="button">3</button></td>
+                <td><button onclick="updateDisplay('-')" type="button">-</button></td>
+            </tr>
+            <tr>
+                <td><button type="submit">=</button></td>
+                <td><button onclick="updateDisplay('0')" type="button">0</button></td>
+                <td><button onclick="updateDisplay('.')" type="button">.</button></td>
+                <td><button onclick="updateDisplay('+')" type="button">+</button></td>
+            </tr>
+        </table>
+        <a href="/calculator">Link here</a>
+    </form>
+
+
+    <style>
+        button {
+            width: 70px;
+            height: 65px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        var result = document.getElementById("result");
+        var resultPrefix = result.innerHTML;
+        function updateDisplay(val) {
+            result.innerHTML = result.innerHTML + val;
+            document.getElementById("inputField").value = result.innerHTML;
+        }
+    </script>
+</body>
+</html>
