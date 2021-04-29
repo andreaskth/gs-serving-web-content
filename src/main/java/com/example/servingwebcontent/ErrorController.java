@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ErrorController {
 
-    private static final Logger logger = LoggerFactory.getLogger(GreetingController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ErrorController.class);
 
 	@GetMapping("/generate-errors")
 	public String generateErrors(@RequestParam(name="count", required=false, defaultValue="10") String count, Model model) {
